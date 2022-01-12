@@ -5,21 +5,24 @@ var negativo = require("./controllers/Negativo")
 var conversao = require("./controllers/conversao")
 
 
-app.get('/:numeros', function(req, res) {
-  
+app.get('/:numeros', function (req, res) {
+
+  //Recebe os parametros e converte em um vetor.
   var numeros = req.params.numeros.split("");
-  var montagem = {};  
+
+  //Cria objeto que sera renderizado como resposta.
+  var montagem = {};
 
 
 
- if(numeros[0] == "-"){montagem.extenso = "menos"}
 
 
-montagem.extenso = conversao(numeros)
+
+  montagem.extenso = conversao(numeros)
 
   res.send(montagem);
 });
 
-app.listen(3000, function() {
-  console.log('App de Exemplo escutando na porta 3000!'  );
+app.listen(3000, function () {
+  console.log('App de Exemplo escutando na porta 3000!');
 });
